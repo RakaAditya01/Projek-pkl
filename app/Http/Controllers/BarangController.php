@@ -19,9 +19,10 @@ class BarangController extends Controller
         $this-> validate($request, [
             'nama_barang',
             'jumlah',
+            'anggaran'
         ]);
         Barang::create($request->all());
-        return redirect(route('barang'));
+        return redirect(route('barang'))->with('success', 'Task Created Successfully!');
         }
     
     
@@ -34,12 +35,12 @@ class BarangController extends Controller
 
     $data = Barang::find($id);
     $data->update($request->all());
-    return redirect()->route('barang');
+    return redirect()->route('barang')->with('success', 'Task Edit Successfully!');;
 }   
     public function destroy($id){
     $data = Barang::find($id);
     $data->delete();
-    return redirect()->route('barang');
+    return redirect()->route('barang')->with('success', 'Task Delete Successfully!');;
 }
 
 }

@@ -4,15 +4,16 @@
 <div class="container">
   <div class="card">
   <div class="card-body">
-  <h1 class="mx-auto">Data Diri</h1>
+  <h1 class="mx-auto text-center">Data Barang</h1>
   <div class="row">
       <a href="{{route('tambahbarang')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
       <table class="table mt-3">
           <thead>
               <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
                   <th scope="col">Nama Barang</th>
                   <th scope="col">Jumlah</th>
+                  <th scope="col">Anggaran</th>
                   <th scope="col">Action</th>
               </tr>   
           </thead>
@@ -25,13 +26,35 @@
                   <th scope="row">{{ $index + $data->firstItem() }}</th>
                   <td>{{$row -> nama_barang}}</td>
                   <td>{{$row -> jumlah}}</td>
+                  <td>{{$row -> anggaran}}</td>
                   <td class="d-flex">
                       <form action="/deletebarang/{{$row->id}}" method="POST">
                           @csrf
                           @method('delete')
-                          <button type="submit" class="btn btn-warning">Delete</button>
+                          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Menghapus Data ini?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Select "Delete" below if you are ready to Delete This Data.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    @method('delete')
+                                    <button class="btn btn-primary" type="submit">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                       </form>
-                     <a href="/tampilanbarang/{{$row->id}}" type="submit" class="btn btn-danger">Edit</a>
+                     <a href="/tampilanbarang/{{$row->id}}" type="submit" class="btn btn-warning">Edit</a>
                   </td>
               </tr>
               @endforeach
@@ -43,6 +66,7 @@
 </div>
 </div>
 </div>
+@include('sweetalert::alert')
     </tbody>
   </table>
 @endsection

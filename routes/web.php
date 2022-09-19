@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PeminjamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +18,11 @@ use App\Http\Controllers\BarangController;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    return view('login.login');
+})->middleware('auth');
+
+//home
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // barang
@@ -31,3 +37,32 @@ Route::get('/tampilanbarang/{id}', [BarangController::class,'tampilanbarang'])->
 Route::put('/updatebarang/{id}', [BarangController::class,'update'])->name('updatebarang');
 
 Route::delete('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
+
+// peminjam
+Route::get('/peminjaman', [PeminjamController::class,'index'])->name('peminjaman');
+
+Route::get('/tambahpeminjam', [PeminjamController::class,'tambahpeminjam'])->name('tambahpeminjam');
+
+Route::post('/insertpeminjam', [PeminjamController::class,'store'])->name('insertpeminjam');
+
+Route::get('/tampilanpeminjam/{id}', [PeminjamController::class,'tampilanpeminjam'])->name('tampilanpeminjam');
+
+Route::put('/updatepeminjam/{id}', [PeminjamController::class,'update'])->name('updatepeminjam');
+
+Route::delete('/deletepeminjaman/{id}', [PeminjamController::class,'destroy'])->name('deletepeminjaman');
+
+// Login
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+
+Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
+
+Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
+
+// auth
+
+Route::group(['middleware' => ['auth','checkrole:admin']],function () {
+    Route::get('admin', function () { return view('admin'); })->middleware('checkRole:admin');
+    Route::get('user', function () { return view('user'); })->middleware(['checkRole:user,admin']);
+});

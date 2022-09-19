@@ -25,6 +25,13 @@
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Anggaran</label>
+                            <input type="text" name="anggaran" value="{{$data->anggaran}}" class="form-control" id=""
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text"></div>
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
