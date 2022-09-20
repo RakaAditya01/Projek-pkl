@@ -38,6 +38,8 @@ Route::put('/updatebarang/{id}', [BarangController::class,'update'])->name('upda
 
 Route::delete('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
 
+Route::get('/barang/cari',[BarangController::class,'cari'])->name('cari');
+
 // peminjam
 Route::get('/peminjaman', [PeminjamController::class,'index'])->name('peminjaman');
 
