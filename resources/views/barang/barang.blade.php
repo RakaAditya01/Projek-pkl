@@ -31,7 +31,7 @@
                       <form action="/deletebarang/{{$row->id}}" method="POST">
                           @csrf 
                                  @method('delete')
-                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                    <a class="btn btn-danger deletebarang" data-id="{{$row -> id}}" type="submit">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -50,6 +50,35 @@
 </div>
 </div>
 @include('sweetalert::alert')
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.js"
+  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+  crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </tbody>
+    <script>
+        $('.deletebarang').click( function(){
+            var barangid = $(this).attr('data-id');
+            swal({
+                                title: "Yakin Deck?",
+                                text: "kamu akan menghapus data barang dengan id "+barangid+" ",
+                                icon: "warning",
+                                buttons: true,
+                                dangerMode: true,
+                                })
+                                .then((willDelete) => {
+                                if (willDelete) {
+                                    window.location ="/deletebarang/"+barangid+" "
+                                    swal("Data berhasil di hapus", {
+                                    icon: "success",
+                                    });
+                                } else {
+                                    swal("data tidak jadi dihapus");
+                                }
+                });
+        });
+                       
+    </script>
   </table>
 @endsection
