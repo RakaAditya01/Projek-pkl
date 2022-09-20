@@ -60,6 +60,8 @@ Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('re
 
 Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
 
+Route::post('/logout', [LoginController::class, 'logout']);
+
 // auth
 
 Route::group(['middleware' => ['auth','checkrole:admin']],function () {
