@@ -53,6 +53,8 @@ Route::put('/updatepeminjam/{id}', [PeminjamController::class,'update'])->name('
 
 Route::delete('/deletepeminjaman/{id}', [PeminjamController::class,'destroy'])->name('deletepeminjaman');
 
+Route::get('/peminjam/cari',[PeminjamController::class,'cari'])->name('cari');
+
 // Login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 

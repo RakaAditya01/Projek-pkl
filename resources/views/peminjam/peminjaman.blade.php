@@ -7,6 +7,12 @@
   <h1 class="mx-auto text-center">Data Peminjam</h1>
   <div class="row">
       <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
+      <div class="col">
+        <form action="/peminjam/cari" method="GET">
+          <input type="text" name="cari" placeholder="Cari Peminjam .." value="{{ old('cari') }}">
+          <input type="submit" value="CARI">
+      </form>
+      </div>
       <table class="table mt-3">
           <thead>
               <tr>

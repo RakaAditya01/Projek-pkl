@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Peminjam;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PeminjamController extends Controller
 {
@@ -42,5 +43,20 @@ class PeminjamController extends Controller
     $data = Peminjam::find($id);
     $data->delete();
     return redirect()->route('peminjaman')->with('success', 'Data Berhasil Di Hapus!');;
+}
+
+public function cari(Request $request)
+{
+    // menangkap data pencarian
+    $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+    $peminjam = DB::table('peminjams')
+    ->where('nama','LIKE',"%".$cari."%")
+    ->paginate(5);
+
+        // mengirim data pegawai ke view index
+    return view('peminjam\peminjaman',['data' => $peminjam]);
+
 }
 }
