@@ -223,12 +223,12 @@
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
                                 </a>
-                                <div class="container mt-5">
-                                    <form action="/logout" method="POST">
-                                        @csrf
-                                        <button class="btn btn-danger">Logout</button>
-                                    </form>
-                                </div>
+                                <div class="dropdown-divider"></div>
+                                    @csrf
+                                <a class="dropdown-item" href="/login"  data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                     logout
+                                    </a>
                         </li>
                     </ul>
 
