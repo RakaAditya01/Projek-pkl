@@ -8,7 +8,7 @@
   <div class="row">
       <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
       <div class="col">
-        <form action="/peminjam/cari" method="GET">
+        <form action="/peminjam/cari" method="GET" class="mt-3">
           <input type="text" name="cari" placeholder="Cari Peminjam .." value="{{ old('cari') }}">
           <input type="submit" value="CARI">
       </form>
@@ -39,15 +39,15 @@
                       <form action="/deletepeminjaman/{{$row->id}}" method="POST">
                           @csrf
                     @method('delete')
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </div>
+                    <button class="btn btn-danger m-2" type="submit">Delete</button>
+                </form>
             </div>
         </div>
     </div>
-                      </form>
-                     <a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning">Edit</a>
-                  </td>
-              </tr>
+</div>
+<a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning m-2">Edit</a>
+</td>
+</tr>
               @endforeach
           </tbody>
       </table>

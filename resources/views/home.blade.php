@@ -20,6 +20,9 @@
     <!-- Custom styles for this template-->
     <link href="/Template/css/sb-admin-2.min.css" rel="stylesheet">
 
+    {{-- link fontawsome --}}
+    <script src="https://kit.fontawesome.com/bbb7a05eb4.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="page-top">
@@ -33,9 +36,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-laugh-wink" style="width: 35; height: 35;"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">ADMIN BARANG</div>
             </a>
 
             <!-- Divider -->
@@ -67,8 +70,8 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Peminjaman</span></a>
+                    <i class="fa-solid fa-users"></i>
+                    <span>Peminjam</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -79,7 +82,7 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            {{-- <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -91,7 +94,7 @@
                 <img class="sidebar-card-illustration mb-2" src="/Template/img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            </div> --}}
 
         </ul>
         <!-- End of Sidebar -->
@@ -111,7 +114,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -122,7 +125,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -318,33 +321,60 @@
 
                     <!-- Content Row -->
                     <div class="row">
-
-
-                        <h1>Tes</h1>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/datadiri">Jumlah Barang :</a>
+                                        </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $barang }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-warehouse" style="width: 25; height: 25"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/datadiri">Peminjam  :</a>
+                                        </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $peminjam }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                          <i class="fa-solid fa-users" style="width: 25; height: 25"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <!-- Content Row -->
-
-                    
-
                     <!-- Content Row -->
-                    
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
-
             <!-- Footer -->
-          
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -352,28 +382,23 @@
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="container mt-5">
-                    <h1 class="display-4">
-                        Welcome {{ auth()->user()->name }}
-                    </h1>
-
-                    <form action="/logout" method="POST">
-                        @csrf
-                        <button class="btn btn-danger">Logout</button>
-                    </form>
-                </div>
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="/login">Logout</a>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="/Template/vendor/jquery/jquery.min.js"></script>
@@ -393,5 +418,4 @@
     <script src="/Template/js/demo/chart-pie-demo.js"></script>
 
 </body>
-
 </html>
