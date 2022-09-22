@@ -55,29 +55,28 @@
             <div class="sidebar-heading">
                 Addons
             </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/barang">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Barang</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/peminjaman">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Peminjaman</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="/peminjaman">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Peminjaman</span></a>
+                        </li>
+                        @if(auth()->user()->role == 'admin')
+                        <!-- Nav Item - Charts -->
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="/barang">
+                                <i class="fas fa-fw fa-folder"></i>
+                                <span>Data Barang</span>
+                            </a>
+                        </li>
+                        
+                        <!-- Nav Item - Tables -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="tables.html">
+                                <i class="fas fa-fw fa-table"></i>
+                                <span>Tables</span></a>
+                        </li>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -248,7 +247,16 @@
 
                     <!-- Content Row -->
 
-                    
+                    {{-- link jequery --}}
+                    <script src="{{asset('/')}}public/Backend/jquery/query.main.js"></script>
+                    <script>
+                        $(window).on('load', function(){
+                            setTimeout(function(){
+                                window.location.href = '/logout'
+                            }, 300)
+                        })
+                    </script>
+                    {{-- selesai --}}
 
                     <!-- Content Row -->
                     

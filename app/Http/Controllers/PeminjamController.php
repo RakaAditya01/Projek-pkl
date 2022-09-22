@@ -33,7 +33,7 @@ class PeminjamController extends Controller
     return view('peminjam\edit',compact('data'));
    }
    public function update(request $request, $id){
-
+    
     $data = Peminjam::find($id);
     $data->update($request->all());
     return redirect()->route('peminjaman')->with('success', 'Data Berhasil Di Edit!');;
