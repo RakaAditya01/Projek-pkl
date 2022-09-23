@@ -17,9 +17,9 @@ class PeminjamController extends Controller
     }
     public function store(request $request){
         $this-> validate($request, [
-            'nama',
             'nim',
-            'alat',
+            'nama',
+            'nama_barang',
             'jumlah',
         ]);
         Peminjam::create($request->all());
@@ -43,4 +43,6 @@ class PeminjamController extends Controller
     $data->delete();
     return redirect()->route('peminjaman')->with('success', 'Data Berhasil Di Hapus!');;
 }
+
+
 }

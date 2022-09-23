@@ -12,7 +12,7 @@
               <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Nama Barang</th>
-                  <th scope="col">Jumlah</th>
+                  <th scope="col">Stock</th>
                   <th scope="col">Anggaran</th>
                   <th scope="col">Action</th>
               </tr>   
@@ -25,7 +25,7 @@
                   @foreach ($data as $index => $row)
                   <th scope="row">{{ $index + $data->firstItem() }}</th>
                   <td>{{$row -> nama_barang}}</td>
-                  <td>{{$row -> jumlah}}</td>
+                  <td>{{$row -> stock}}</td>
                   <td>{{$row -> anggaran}}</td>
                   <td class="d-flex">
                       <form action="/deletebarang/{{$row->id}}" method="POST">
