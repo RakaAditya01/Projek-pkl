@@ -9,8 +9,7 @@
       <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
       <div class="col">
         <form action="/peminjam/cari" method="GET" class="mt-3">
-          <input type="text" name="cari" placeholder="Cari Peminjam .." value="{{ old('cari') }}">
-          <input type="submit" value="CARI">
+          <input type="search" id="cari" name="cari" placeholder="Cari Peminjam .." value="{{ old('cari') }}">
       </form>
       </div>
       <table class="table mt-3">
@@ -48,8 +47,14 @@
 <a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning m-2">Edit</a>
 </td>
 </tr>
+{{-- Tbody Live Search --}}
+    </tbody>
+    {{-- End --}}
               @endforeach
           </tbody>
+          {{-- Live Search
+          <tbody id="Content" class="searchdata"></tbody> --}}
+          {{-- End --}}
       </table>
        {{ $data->links() }}
   </div>
@@ -57,7 +62,14 @@
 </div>
 </div>
 </div>
+
 @include('sweetalert::alert')
-    </tbody>
-  </table>
+
+{{-- @include('peminjam.peminjam_js') --}}
+
+{{-- Script Live Search --}}
+
+{{-- End --}}
+</tbody>
+</table>
 @endsection

@@ -55,6 +55,8 @@ Route::delete('/deletepeminjaman/{id}', [PeminjamController::class,'destroy'])->
 
 Route::get('/peminjam/cari',[PeminjamController::class,'cari'])->name('cari');
 
+// Route::get('/action',[PeminjamController::class,'action'])->name('action');
+
 // Login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 

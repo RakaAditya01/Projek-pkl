@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink" style="width: 35; height: 35;"></i>
                 </div>
@@ -232,7 +232,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
+                                    <div class="dropdown-list-image fmr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
@@ -326,7 +326,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/datadiri">Jumlah Barang :</a>
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/barang">Jumlah Barang :</a>
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
@@ -347,7 +347,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/datadiri">Peminjam  :</a>
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/peminjaman">Jumlah Peminjam  :</a>
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">

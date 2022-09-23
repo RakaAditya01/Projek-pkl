@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class PeminjamController extends Controller
 {
-    public function index(){
+    public function index(){  
         $data = Peminjam::paginate(5);
         return view('peminjam\peminjaman',compact('data'));
     }
+
     public function tambahpeminjam(){
 
         return view('peminjam\tambahpeminjam');
@@ -57,6 +58,22 @@ public function cari(Request $request)
 
         // mengirim data pegawai ke view index
     return view('peminjam\peminjaman',['data' => $peminjam]);
-
 }
+
+// // live search 
+// public function cari(Request $request){
+//     $data = Peminjam::where('nama', 'like', '%'.$request->search_string.'%')
+//     ->orWhere('nim', 'like', '%'.$request->search_string.'%')
+//     ->orderBy('id', 'desc')
+//     ->paginate(10);
+
+//     if($data->count() >= 1){
+//         return view('peminjam\peminjaman',compact('data'))->render();
+//     }else{
+//         return response()->json([
+//             'status'=>'Nothing Found'
+//         ]);
+//     }
+// }
+
 }
