@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('peminjams', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
             $table->integer('nim');
-            $table->string('alat');
+            $table->string('nama');
+            $table->string('nama_barang');
             $table->integer('jumlah');
             $table->timestamps();
         });
