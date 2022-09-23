@@ -36,7 +36,7 @@ Route::get('/tampilanbarang/{id}', [BarangController::class,'tampilanbarang'])->
 
 Route::put('/updatebarang/{id}', [BarangController::class,'update'])->name('updatebarang');
 
-Route::delete('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
+Route::get('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
 
 // peminjam
 Route::get('/peminjaman', [PeminjamController::class,'index'])->name('peminjaman');

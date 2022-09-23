@@ -29,26 +29,9 @@
                   <td>{{$row -> anggaran}}</td>
                   <td class="d-flex">
                       <form action="/deletebarang/{{$row->id}}" method="POST">
-                          @csrf
-                          @method('delete')
-                          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <button class="btn btn-danger">Delete</button>
-                        </a>
-                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Menghapus Data ini?</h5>
-                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">Select "Delete" below if you are ready to Delete This Data.</div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                    @method('delete')
-                                    <button class="btn btn-primary" type="submit">Delete</button>
+                          @csrf 
+                                 @method('delete')
+                                    <a class="btn btn-danger deletebarang" data-id="{{$row -> id}}" type="submit">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -67,6 +50,35 @@
 </div>
 </div>
 @include('sweetalert::alert')
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.js"
+  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+  crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </tbody>
+    <script>
+        $('.deletebarang').click( function(){
+            var barangid = $(this).attr('data-id');
+            swal({
+                                title: "Yakin Deck?",
+                                text: "kamu akan menghapus data barang dengan id "+barangid+" ",
+                                icon: "warning",
+                                buttons: true,
+                                dangerMode: true,
+                                })
+                                .then((willDelete) => {
+                                if (willDelete) {
+                                    window.location ="/deletebarang/"+barangid+" "
+                                    swal("Data berhasil di hapus", {
+                                    icon: "success",
+                                    });
+                                } else {
+                                    swal("data tidak jadi dihapus");
+                                }
+                });
+        });
+                       
+    </script>
   </table>
 @endsection

@@ -33,7 +33,7 @@ class PeminjamController extends Controller
     return view('peminjam\edit',compact('data'));
    }
    public function update(request $request, $id){
-
+    
     $data = Peminjam::find($id);
     $data->update($request->all());
     return redirect()->route('peminjaman')->with('success', 'Data Berhasil Di Edit!');;
@@ -41,7 +41,7 @@ class PeminjamController extends Controller
     public function destroy($id){
     $data = Peminjam::find($id);
     $data->delete();
-    return redirect()->route('peminjaman')->with('success', 'Data Berhasil Di Hapus!');;
+    return redirect()->route('peminjaman');
 }
 
 

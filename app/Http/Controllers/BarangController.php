@@ -32,7 +32,6 @@ class BarangController extends Controller
     return view('barang\edit',compact('data'));
    }
    public function update(request $request, $id){
-
     $data = Barang::find($id);
     $data->update($request->all());
     return redirect()->route('barang')->with('success', 'Data Berhasil Di Edit!');;
@@ -40,7 +39,7 @@ class BarangController extends Controller
     public function destroy($id){
     $data = Barang::find($id);
     $data->delete();
-    return redirect()->route('barang')->with('success', 'Data Berhasil Di Hapus!');;
+    return redirect()->route('barang');
 }
 
 }
