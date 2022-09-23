@@ -50,6 +50,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
+
                 <table class="table mt-3">
                     <thead>
                         <tr>
@@ -106,6 +107,24 @@
 </td>
 </tr>
 </div>
+=======
+                                                    <button class="btn btn-primary" type="submit">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning">Edit</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $data->links() }}
+            </div>
+        </div>
+    </div>
+>>>>>>> 521d17f (section)
 </div>
 </div>
 </div>
