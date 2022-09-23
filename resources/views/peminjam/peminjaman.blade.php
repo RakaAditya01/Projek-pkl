@@ -7,6 +7,11 @@
   <h1 class="mx-auto text-center">Data Peminjam</h1>
   <div class="row">
       <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
+      <div class="col">
+        <form action="/peminjam/cari" method="GET" class="mt-3">
+          <input type="search" id="cari" name="cari" placeholder="Cari Peminjam .." value="{{ old('cari') }}">
+      </form>
+      </div>
       <table class="table mt-3">
           <thead>
               <tr>
@@ -49,17 +54,23 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     @method('delete')
-                    <button class="btn btn-primary" type="submit">Delete</button>
-                </div>
+                    <button class="btn btn-danger m-2" type="submit">Delete</button>
+                </form>
             </div>
         </div>
     </div>
-                      </form>
-                     <a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning">Edit</a>
-                  </td>
-              </tr>
+</div>
+<a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning m-2">Edit</a>
+</td>
+</tr>
+{{-- Tbody Live Search --}}
+    </tbody>
+    {{-- End --}}
               @endforeach
           </tbody>
+          {{-- Live Search
+          <tbody id="Content" class="searchdata"></tbody> --}}
+          {{-- End --}}
       </table>
        {{ $data->links() }}
   </div>
@@ -67,7 +78,14 @@
 </div>
 </div>
 </div>
+
 @include('sweetalert::alert')
+
+{{-- @include('peminjam.peminjam_js') --}}
+
+{{-- Script Live Search --}}
+
+{{-- End --}}
 </tbody>
 </table>
 @endsection
