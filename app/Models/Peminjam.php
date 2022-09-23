@@ -10,9 +10,13 @@ class Peminjam extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
         'nim',
-        'alat',
+        'nama',
+        'nama_barang',
         'jumlah',
     ];
+
+    public function barang(){
+        return $this->hasMany('App\Http\Models\Barang');
+    }
 }

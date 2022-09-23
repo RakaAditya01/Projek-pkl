@@ -13,13 +13,6 @@
                         @csrf
                         @method('put')
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" name="nama" value="{{$data->nama}}" class="form-control" id=""
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
-                        </div>
-
-                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
                             <input type="text" name="nim" value="{{$data->nim}}" class="form-control" id=""
                                 aria-describedby="emailHelp">
@@ -27,8 +20,16 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Alat</label>
-                            <input type="text" name="alat" value="{{$data->alat}}" class="form-control" id=""
+                            <label for="exampleInputEmail1" class="form-label">Nama</label>
+                            <input type="text" name="nama" value="{{$data->nama}}" class="form-control" id=""
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text"></div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
+                            <input type="text" name="nama_barang" value="{{$data->nama_barang}}" class="form-control" id=""
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>

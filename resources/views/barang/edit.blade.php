@@ -20,8 +20,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Jumlah</label>
-                            <input type="text" name="jumlah" value="{{$data->jumlah}}" class="form-control" id=""
+                            <label for="exampleInputEmail1" class="form-label">Stock</label>
+                            <input type="text" name="stock" value="{{$data->stock}}" class="form-control" id=""
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>

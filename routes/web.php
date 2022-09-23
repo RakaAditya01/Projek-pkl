@@ -38,6 +38,8 @@ Route::put('/updatebarang/{id}', [BarangController::class,'update'])->name('upda
 
 Route::get('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
 
+Route::get('/barang/cari',[BarangController::class,'cari'])->name('cari');
+
 // peminjam
 Route::get('/peminjaman', [PeminjamController::class,'index'])->name('peminjaman');
 
@@ -50,6 +52,10 @@ Route::get('/tampilanpeminjam/{id}', [PeminjamController::class,'tampilanpeminja
 Route::put('/updatepeminjam/{id}', [PeminjamController::class,'update'])->name('updatepeminjam');
 
 Route::delete('/deletepeminjaman/{id}', [PeminjamController::class,'destroy'])->name('deletepeminjaman');
+
+Route::get('/peminjam/cari',[PeminjamController::class,'cari'])->name('cari');
+
+// Route::get('/action',[PeminjamController::class,'action'])->name('action');
 
 // Login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
