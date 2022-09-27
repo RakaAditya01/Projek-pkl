@@ -37,7 +37,7 @@ Route::get('/tampilanbarang/{id}', [BarangController::class,'tampilanbarang'])->
 
 Route::put('/updatebarang/{id}', [BarangController::class,'update'])->name('updatebarang');
 
-Route::get('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
+Route::delete('/deletebarang/{id}', [BarangController::class,'destroy'])->name('deletebarang');
 
 Route::get('/barang/cari',[BarangController::class,'cari'])->name('cari');
 
