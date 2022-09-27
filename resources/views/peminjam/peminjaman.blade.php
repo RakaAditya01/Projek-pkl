@@ -9,16 +9,16 @@
       <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
       <div class="col">
         <form action="/peminjam/cari" method="GET" class="mt-3">
-          <input type="search" id="cari" name="cari" placeholder="Cari Peminjam .." value="{{ old('cari') }}">
+          <input type="text" id="input" placeholder="Cari Peminjam .." onkeyup='searchTable()'>
       </form>
       </div>
-      <table class="table mt-3">
+      <table class="table mt-3" id="table">
           <thead>
               <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Nama</th>
                   <th scope="col">NIM</th>
-                  <th scope="col">Alat</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Nama Barang</th>
                   <th scope="col">Jumlah</th>
                   <th scope="col">Action</th>
               </tr>   
@@ -30,9 +30,9 @@
               <tr>
                   @foreach ($data as $index => $row)
                   <th scope="row">{{ $index + $data->firstItem() }}</th>
-                  <td>{{$row -> nama}}</td>
                   <td>{{$row -> nim}}</td>
-                  <td>{{$row -> alat}}</td>
+                  <td>{{$row -> nama}}</td>
+                  <td>{{$row -> nama_barang}}</td>
                   <td>{{$row -> jumlah}}</td>
                   <td class="d-flex">
                       <form action="/deletepeminjaman/{{$row->id}}" method="POST">
@@ -63,14 +63,12 @@
 <a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning m-2">Edit</a>
 </td>
 </tr>
-{{-- Tbody Live Search --}}
-    </tbody>
-    {{-- End --}}
+</div>
+</div>
+</div>
+</div>
               @endforeach
           </tbody>
-          {{-- Live Search
-          <tbody id="Content" class="searchdata"></tbody> --}}
-          {{-- End --}}
       </table>
        {{ $data->links() }}
   </div>
@@ -80,12 +78,36 @@
 </div>
 
 @include('sweetalert::alert')
-
-{{-- @include('peminjam.peminjam_js') --}}
-
-{{-- Script Live Search --}}
-
-{{-- End --}}
 </tbody>
+<script>
+    function searchTable() {
+        var input;
+        var saring;
+        var status; 
+        var tbody; 
+        var tr; 
+        var td;
+        var i; 
+        var j;
+        input = document.getElementById("input");
+        saring = input.value.toUpperCase();
+        tbody = document.getElementsByTagName("tbody")[0];;
+        tr = tbody.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j].innerHTML.toUpperCase().indexOf(saring) > -1) {
+                    status = true;
+                }
+            }
+            if (status) {
+                tr[i].style.display = "";
+                status = false;
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+    </script>
 </table>
 @endsection
