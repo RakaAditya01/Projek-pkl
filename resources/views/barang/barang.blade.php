@@ -8,9 +8,8 @@
   <div class="row">
       <a href="{{route('tambahbarang')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
       <div class="col">
-          <form action="/barang/cari" method="GET" class="mt-3">
-            <input type="text" name="cari" placeholder="Cari Barang .." value="{{ old('cari') }}">
-            <input type="submit" value="CARI">
+          <form action="/barang/cari" method="POST" class="mt-3">
+            <input type='text' id='input' onkeyup='searchTable()'>
         </form>
         </div>
       <table class="table mt-3">
@@ -65,17 +64,17 @@
     </tbody>
     <script>
         $('.deletebarang').click( function(){
-            var barangid = $(this).attr('data-id');
+            var nama_barangid = $(this).attr('data-id');
             swal({
                                 title: "Yakin Deck?",
-                                text: "kamu akan menghapus data barang dengan id "+barangid+" ",
+                                text: "kamu akan menghapus data barang dengan id "+nama_barangid+" ",
                                 icon: "warning",
                                 buttons: true,
                                 dangerMode: true,
                                 })
                                 .then((willDelete) => {
                                 if (willDelete) {
-                                    window.location ="/deletebarang/"+barangid+" "
+                                    window.location ="/deletebarang/"+nama_barangid+" "
                                     swal("Data berhasil di hapus", {
                                     icon: "success",
                                     });
@@ -84,7 +83,37 @@
                                 }
                 });
         });
-                       
     </script>
+    
+    <script>
+        function searchTable() {
+            var input;
+            var saring;
+            var status; 
+            var tbody; 
+            var tr; 
+            var td;
+            var i; 
+            var j;
+            input = document.getElementById("input");
+            saring = input.value.toUpperCase();
+            tbody = document.getElementsByTagName("tbody")[0];;
+            tr = tbody.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j].innerHTML.toUpperCase().indexOf(saring) > -1) {
+                        status = true;
+                    }
+                }
+                if (status) {
+                    tr[i].style.display = "";
+                    status = false;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        </script>        
   </table>
 @endsection

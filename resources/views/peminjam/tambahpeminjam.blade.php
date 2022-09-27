@@ -19,13 +19,13 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama</label>
                             <input type="text" name="nama" class="form-control" id=""
-                                aria-describedby="emailHelp">
+                             aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
                             <input type="text" name="nama_barang" class="form-control" id=""
-                                aria-describedby="emailHelp">
+                            pattern="([A-Z])[a-z]{3}$" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">

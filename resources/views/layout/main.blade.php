@@ -320,7 +320,7 @@
                         $(window).on('load', function(){
                             setTimeout(function(){
                                 window.location.href = '/login'
-                            }, 999999)
+                            }, 500000)
                         })
                     </script>
                     {{-- selesai --}}
