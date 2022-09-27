@@ -64,17 +64,17 @@
     </tbody>
     <script>
         $('.deletebarang').click( function(){
-            var barangid = $(this).attr('data-id');
+            var nama_barangid = $(this).attr('data-id');
             swal({
                                 title: "Yakin Deck?",
-                                text: "kamu akan menghapus data barang dengan id "+barangid+" ",
+                                text: "kamu akan menghapus data barang dengan id "+nama_barangid+" ",
                                 icon: "warning",
                                 buttons: true,
                                 dangerMode: true,
                                 })
                                 .then((willDelete) => {
                                 if (willDelete) {
-                                    window.location ="/deletebarang/"+barangid+" "
+                                    window.location ="/deletebarang/"+nama_barangid+" "
                                     swal("Data berhasil di hapus", {
                                     icon: "success",
                                     });
@@ -83,9 +83,9 @@
                                 }
                 });
         });
-            
-                       
     </script>
+    
+    <script>
         function searchTable() {
             var input;
             var saring;
