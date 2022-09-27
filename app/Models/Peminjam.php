@@ -10,9 +10,9 @@ class Peminjam extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
         'nim',
-        'alat',
+        'nama',
+        'nama_barang',
         'jumlah',
     ];
 }

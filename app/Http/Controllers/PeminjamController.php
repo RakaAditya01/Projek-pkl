@@ -46,34 +46,17 @@ class PeminjamController extends Controller
     return redirect()->route('peminjaman')->with('success', 'Data Berhasil Di Hapus!');;
 }
 
-public function cari(Request $request)
-{
-    // menangkap data pencarian
-    $cari = $request->cari;
+// public function cari(Request $request)
+// {
+//     // menangkap data pencarian
+//     $cari = $request->cari;
 
-        // mengambil data dari table pegawai sesuai pencarian data
-    $peminjam = DB::table('peminjams')
-    ->where('nama','LIKE',"%".$cari."%")
-    ->paginate(5);
+//         // mengambil data dari table pegawai sesuai pencarian data
+//     $peminjam = DB::table('peminjams')
+//     ->where('nama','LIKE',"%".$cari."%")
+//     ->paginate(5);
 
-        // mengirim data pegawai ke view index
-    return view('peminjam\peminjaman',['data' => $peminjam]);
-}
-
-// // live search 
-// public function cari(Request $request){
-//     $data = Peminjam::where('nama', 'like', '%'.$request->search_string.'%')
-//     ->orWhere('nim', 'like', '%'.$request->search_string.'%')
-//     ->orderBy('id', 'desc')
-//     ->paginate(10);
-
-//     if($data->count() >= 1){
-//         return view('peminjam\peminjaman',compact('data'))->render();
-//     }else{
-//         return response()->json([
-//             'status'=>'Nothing Found'
-//         ]);
-//     }
+//         // mengirim data pegawai ke view index
+//     return view('peminjam\peminjaman',['data' => $peminjam]);
 // }
-
 }
