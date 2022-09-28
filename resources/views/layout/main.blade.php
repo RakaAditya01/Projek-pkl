@@ -22,11 +22,9 @@
     <link href="/Template/css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    {{-- live search
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script> --}}
-        
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {{-- link fontawsome --}}
+    <script src="https://kit.fontawesome.com/bbb7a05eb4.js" crossorigin="anonymous"></script>
+
     
 </head>
 
@@ -41,7 +39,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-laugh-wink" style="width: 35; height: 35;"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin Barang</div>
             </a>
@@ -383,5 +381,4 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
-
 </html>
