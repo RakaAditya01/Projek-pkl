@@ -126,8 +126,13 @@
     </div>
 </div>
 </div>
-
 @include('sweetalert::alert')
+
+{{-- @include('peminjam.peminjam_js') --}}
+
+{{-- Script Live Search --}}
+
+{{-- End --}}
 </tbody>
 <script>
     function searchTable() {
