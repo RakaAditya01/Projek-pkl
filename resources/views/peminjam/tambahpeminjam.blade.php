@@ -40,5 +40,31 @@
             </div>
         </div>
     </div>
+    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$("#nim").change(function(){
+				var nim = $("#nim").val();
+ 
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					data: {
+						'nim': nim
+					},
+					success: function (peminjam) {
+						$("#nama").val(peminjam['nama']);
+ 
+						var $nama = $('input:text[name=nama]');
+					}
+				});
+			});
+ 
+			$("form").submit(function(){
+				alert("Keep learning");
+			});
+		});
+	</script>
 </div>
 @endsection

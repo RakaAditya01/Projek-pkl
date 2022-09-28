@@ -84,6 +84,8 @@
                 });
         });
             
+                       
+    </script>
         function searchTable() {
             var input;
             var saring;
