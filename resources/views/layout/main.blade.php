@@ -318,8 +318,8 @@
                     <script>
                         $(window).on('load', function(){
                             setTimeout(function(){
-                                window.location.href = '/logout'
-                            }, 300)
+                                window.location.href = '/login'
+                            }, 999999)
                         })
                     </script>
                     {{-- selesai --}}
