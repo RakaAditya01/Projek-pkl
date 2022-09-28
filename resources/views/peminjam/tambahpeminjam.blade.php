@@ -12,7 +12,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
-                            <input type="text" name="nim" class="form-control" id=""
+                            <input type="text" name="nim" class="form-control"
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
