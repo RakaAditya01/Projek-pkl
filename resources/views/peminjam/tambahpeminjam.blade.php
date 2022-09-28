@@ -10,24 +10,29 @@
                 <div class="card-body" style="width: 90%">
                     <form method="POST" action="/insertpeminjam/" enctype="multipart/form-data">
                         @csrf
+                        
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
-                            <input type="text" name="nim" class="form-control"
-                                aria-describedby="emailHelp">
+                            <input type="text" value="{{ auth()->user()->id }}" disabled id="nim" class="form-control">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" name="nama" class="form-control" id=""
-                                aria-describedby="emailHelp">
+                            <input type="text" value="{{ auth()->user()->name  }}" disabled id="nama"  class="form-control">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
-                            <input type="text" name="nama_barang" class="form-control" id=""
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
+                            <label for="exampleFormControlSelect1" class="form-label">Nama Barang</label>
+                            <select class="form-control" id="barangs" aria-label="Default select example" name="nama_barang">
+                                <option value="" selected disabled>- Pilih -</option>
+                                @foreach ($data as $data)
+                                <option value="{{$data->id}}">{{ $data->nama_barang }}</option>
+                                @endforeach
+                            </select>
                         </div>
+                        
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Dokumentasi</label>
                             <input type="file" name="dokumentasi" class="form-control" id="exampleInputEmail1"
@@ -43,6 +48,7 @@
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -77,3 +83,4 @@
 	</script>
 </div>
 @endsection
+                          

@@ -7,12 +7,7 @@
   <h1 class="mx-auto text-center">Data Peminjam</h1>
   <div class="row">
       <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
-      <div class="col">
-        <form action="/peminjam/cari" method="GET" class="mt-3">
-          <input type="text" id="input" placeholder="Cari Peminjam .." onkeyup='searchTable()'>
-      </form>
-      </div>
-      <table class="table mt-3" id="table">
+      <table class="table mt-3">
           <thead>
               <tr>
                   <th scope="col">ID</th>
@@ -55,32 +50,40 @@
                     </button>
                 </div>
                 <div class="modal-body">Select "Delete" below if you are ready to Delete This Data.</div>
-                    <div class="modal-footer">
-                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            @method('delete')
-                         <button class="btn btn-danger m-2" type="submit">Delete</button>
-                  </form>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    @method('delete')
+                    <button class="btn btn-primary" type="submit">Delete</button>
+                </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="mx-auto text-center">Data Peminjam</h1>
+            <div class="row">
+                <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
+                                                <div class="modal-body">Select "Delete" below if you are ready to Delete
+                                                    This Data.</div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    @method('delete')
+                                                    <button class="btn btn-primary" type="submit">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning">Edit</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $data->links() }}
             </div>
         </div>
     </div>
 </div>
-<a href="/tampilanpeminjam/{{$row->id}}" type="submit" class="btn btn-warning m-2">Edit</a>
-</td>
-</tr>
 </div>
-</div>
-</div>
-</div>
-              @endforeach
-          </tbody>
-      </table>
-       {{ $data->links() }}
-  </div>
-  </div>
-</div>
-</div>
-</div>
-
 @include('sweetalert::alert')
 
 {{-- @include('peminjam.peminjam_js') --}}
