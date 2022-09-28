@@ -43,6 +43,10 @@
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
                                             placeholder="First Name" name="name">
                                     </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="NIM">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
