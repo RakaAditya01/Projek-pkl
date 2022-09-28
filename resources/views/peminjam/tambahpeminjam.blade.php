@@ -8,7 +8,7 @@
         <div class="col-8">
             <div class="card">
                 <div class="card-body" style="width: 90%">
-                    <form  method="POST" action="{{route('insertpeminjam')}}">
+                    <form method="POST" action="/insertpeminjam/" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
@@ -28,6 +28,15 @@
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Dokumentasi</label>
+                            <input type="file" name="dokumentasi" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            @error('dokumentasi')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                            @enderror
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
                             <input type="text" name="jumlah" class="form-control" id=""

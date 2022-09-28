@@ -22,12 +22,19 @@ class PeminjamController extends Controller
             'nim',
             'nama',
             'nama_barang',
+            'dokumentasi',
             'jumlah',
         ]);
-        Peminjam::create($request->all());
-        return redirect(route('peminjaman'))->with('success', 'Data Berhasil Di Tambahkan!');
-        }
-    
+        $data = Peminjam::create ($request->all());
+        if($request->hasFile('dokumentasi')){
+            $request->file('dokumentasi')->move('fotodokumentasi/', $request->file('dokumentasi')->getClientOriginalName());
+            $data->dokumentasi = $request->file('dokumentasi')->getClientOriginalName();
+            $data->save();
+        }  
+            
+            return redirect(route('peminjaman'));
+
+    }
     
 
     public function tampilanpeminjam($id){

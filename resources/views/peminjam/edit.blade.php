@@ -33,7 +33,16 @@
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
-
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Dokumentasi</label>
+                            <input type="text" name="dokumentasi" value="{{$data->dokumentasi}}" class="form-control"  id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                            @error('dokumentasi')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
                             <input type="text" name="jumlah" value="{{$data->jumlah}}" class="form-control" id=""

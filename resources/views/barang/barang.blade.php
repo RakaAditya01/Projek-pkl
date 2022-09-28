@@ -33,7 +33,7 @@
                   <td>{{$row -> stock}}</td>
                   <td>{{$row -> anggaran}}</td>
                   <td class="d-flex">
-                      <form action="/deletebarang/{{$row->id}}" method="POST">
+                      <form action="/deletebarang/{{$row->id}}" method="GET">
                           @csrf 
                                  @method('delete')
                                     <button class="btn btn-danger m-2" type="submit">Delete</button>
@@ -84,8 +84,7 @@
                 });
         });
             
-                       
-    </script>
+                  
         function searchTable() {
             var input;
             var saring;

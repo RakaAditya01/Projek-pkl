@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\WebcamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,9 @@ Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('re
 Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
 
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('webcam', [WebcamController::class, 'index']);
+Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');
 
 // auth
 

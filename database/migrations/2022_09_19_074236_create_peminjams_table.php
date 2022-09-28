@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('nim');
             $table->string('nama');
             $table->string('nama_barang');
+            $table->string('dokumentasi');
             $table->integer('jumlah');
             $table->timestamps();
         });
