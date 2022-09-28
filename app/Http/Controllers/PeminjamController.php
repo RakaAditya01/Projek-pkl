@@ -54,19 +54,4 @@ class PeminjamController extends Controller
         $data->delete();
         return redirect()->route('peminjaman');
     }
-
-    public function cari(Request $request)
-    {
-    // menangkap data pencarian
-    $cari = $request->cari;
-
-//         // mengambil data dari table pegawai sesuai pencarian data
-//     $peminjam = DB::table('peminjams')
-//     ->where('nama','LIKE',"%".$cari."%")
-//     ->paginate(5);
-
-        // mengirim data pegawai ke view index
-    return view('peminjam\peminjaman',['data' => $peminjam]);
-    }
-
 }
