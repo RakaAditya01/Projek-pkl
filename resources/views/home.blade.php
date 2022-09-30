@@ -51,7 +51,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-         
+
             <hr class="sidebar-divider">
 
             <!-- Heading -->
@@ -59,22 +59,22 @@
                 Addons
             </div>
 
-            
+
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Peminjaman</span></a>
-                </li>
-                @if(auth()->user()->role == 'admin')
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{route('barang')}}">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Data Barang</span>
-                    </a>
-                    
-                </li>
+            </li>
+            @if(auth()->user()->role == 'admin')
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('barang')}}">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Data Barang</span>
+                </a>
+
+            </li>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
@@ -208,9 +208,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->name}}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="/Template/img/undraw_profile.svg">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->name}}</span>
+                                <img class="img-profile rounded-circle" src="/Template/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -252,48 +252,52 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/barang">Jumlah Barang :</a>
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $barang }}</div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a
+                                                    href="/barang">Jumlah Barang :</a>
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ $barang }}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fa-solid fa-warehouse" style="width: 25; height: 25"></i>
+                                        <div class="col-auto">
+                                            <i class="fa-solid fa-warehouse" style="width: 25; height: 25"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="/peminjaman">Jumlah Peminjam  :</a>
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $peminjam }}</div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a
+                                                    href="/peminjaman">Jumlah Peminjam :</a>
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ $peminjam }}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-auto">
-                                          <i class="fa-solid fa-users" style="width: 25; height: 25"></i>
+                                        <div class="col-auto">
+                                            <i class="fa-solid fa-users" style="width: 25; height: 25"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                     <!-- Content Row -->
                     <!-- Content Row -->
                 </div>
@@ -313,23 +317,23 @@
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/login">Logout</a>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/login">Logout</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="/Template/vendor/jquery/jquery.min.js"></script>
@@ -349,4 +353,5 @@
     <script src="/Template/js/demo/chart-pie-demo.js"></script>
 
 </body>
+
 </html>

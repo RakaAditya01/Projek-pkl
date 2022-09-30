@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class BarangController extends Controller
 {
-    public function index(Request $request){
-        $data = Barang::paginate(5);
+    public function index(){
+        $data = Barang::paginate();
         return view('barang\barang',compact('data'));
     }
     public function tambahbarang(){

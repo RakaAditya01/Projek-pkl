@@ -45,9 +45,9 @@
                                     <form action="{{route('loginproses')}}" class="user" method="POST">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter KTP/NIM..." name="email">
+                                                placeholder="Enter Email/NIM..." name="email">
                                              </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"

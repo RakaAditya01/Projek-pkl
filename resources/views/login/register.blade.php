@@ -34,7 +34,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Register Akun Peduli Diri</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Register Akun</h1>
                             </div>
                             <form class="user" method="POST" action="{{route('registeruser')}}">
                                 @csrf
@@ -44,8 +44,8 @@
                                             placeholder="First Name" name="name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="NIM">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastNim"
+                                            placeholder="NIM" name="nim">
                                     </div>
                                 </div>
                                 <div class="form-group">

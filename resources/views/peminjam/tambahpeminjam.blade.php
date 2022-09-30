@@ -13,26 +13,25 @@
                         
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
-                            <input type="text" value="{{ auth()->user()->id }}" disabled id="nim" class="form-control">
+                            <input type="text" name="nim" id="" class="form-control"
+                            aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" value="{{ auth()->user()->name  }}" disabled id="nama"  class="form-control">
+                            <input type="text" name="nama" id="nama" class="form-control"
+                            aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleFormControlSelect1" class="form-label">Nama Barang</label>
-                            <select class="form-control" id="barangs" aria-label="Default select example" name="nama_barang">
-                                <option value="" selected disabled>- Pilih -</option>
-                                @foreach ($data as $data)
-                                <option value="{{$data->id}}">{{ $data->nama_barang }}</option>
-                                @endforeach
-                            </select>
+                            <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
+                            <input type="text" name="nama_barang" class="form-control" id=""
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text"></div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Dokumentasi</label>
                             <input type="file" name="dokumentasi" class="form-control" id="exampleInputEmail1"
@@ -55,32 +54,6 @@
             </div>
         </div>
     </div>
-    
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script>
-		$(function() {
-			$("#nim").change(function(){
-				var nim = $("#nim").val();
- 
-				$.ajax({
-					type: 'POST',
-					dataType: 'json',
-					data: {
-						'nim': nim
-					},
-					success: function (peminjam) {
-						$("#nama").val(peminjam['nama']);
- 
-						var $nama = $('input:text[name=nama]');
-					}
-				});
-			});
- 
-			$("form").submit(function(){
-				alert("Keep learning");
-			});
-		});
-	</script>
 </div>
 @endsection
                           
