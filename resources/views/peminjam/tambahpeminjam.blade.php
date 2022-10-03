@@ -27,9 +27,12 @@
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
-                            <input type="text" name="nama_barang" class="form-control" id=""
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
+                            <select class="form-control" id="nama_barang" aria-label="Default select example" name="nama_barang">
+                                <option value="">-- Pilih --</option>
+                                @foreach ($barang as $data)
+                                <option value="{{$data->id}}">{{ $data->nama_barang}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mb-3">

@@ -69,6 +69,7 @@ Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('logi
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
+// webcam
 Route::get('webcam', [WebcamController::class, 'index']);
 Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');
 

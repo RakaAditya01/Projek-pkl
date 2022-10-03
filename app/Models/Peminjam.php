@@ -18,6 +18,6 @@ class Peminjam extends Model
     ];
 
     public function barang(){
-        return $this->hasMany('App\Http\Models\Barang');
+        return $this->hasMany(Barang::class);
     }
 }

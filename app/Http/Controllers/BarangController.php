@@ -12,10 +12,12 @@ class BarangController extends Controller
         $data = Barang::paginate();
         return view('barang\barang',compact('data'));
     }
-    public function tambahbarang(){
 
-        return view('barang\tambahbarang');
+    public function tambahbarang(){
+        $data = Barang::all();
+        return view('barang\tambahbarang' , compact('data'));
     }
+
     public function store(request $request){
         $this-> validate($request, [
             'nama_barang',

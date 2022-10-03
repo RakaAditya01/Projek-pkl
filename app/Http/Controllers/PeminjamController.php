@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peminjam;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,8 +15,8 @@ class PeminjamController extends Controller
     }
 
     public function tambahpeminjam(){
-        $data = Peminjam::all();
-        return view('peminjam\tambahpeminjam' , compact('data'));
+        $barang = Barang ::all();
+        return view('peminjam\tambahpeminjam' , compact('barang'));
     }
 
     public function store(request $request){
@@ -33,8 +34,7 @@ class PeminjamController extends Controller
             $data->save();
         }  
             
-            return redirect(route('peminjaman'));
-
+        return redirect(route('peminjaman'));
     }
     
 

@@ -16,8 +16,7 @@ class Barang extends Model
         'anggaran',
     ];
 
-    public Function peminjam()
-    {
+    public Function peminjam(){
         return $this->hasMany(Peminjam::class);
     }
 }
