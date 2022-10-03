@@ -30,7 +30,7 @@
                             <select class="form-control" id="nama_barang" aria-label="Default select example" name="nama_barang">
                                 <option value="">-- Pilih --</option>
                                 @foreach ($barang as $data)
-                                <option value="{{$data->id}}">{{ $data->nama_barang}}</option>
+                                <option value="{{$data->nama_barang}}">{{ $data->nama_barang}}</option>
                                 @endforeach
                             </select>
                         </div>
