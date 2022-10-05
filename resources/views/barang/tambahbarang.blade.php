@@ -12,21 +12,30 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
-                            <input type="text" name="nama_barang" class="form-control" id=""
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
+                            <input type="text" name="nama_barang" class="form-control" id="" aria-describedby="emailHelp">
+                            @error('nama_barang')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Stock</label>
-                            <input type="text" name="stock" class="form-control" id=""
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
+                            <input type="text" name="stock" class="form-control" id="" aria-describedby="emailHelp">
+                            @error('stock')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Anggaran</label>
-                            <input type="text" name="anggaran" class="form-control" id=""
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
+                            <input type="text" name="anggaran" class="form-control" id="" aria-describedby="emailHelp">
+                            @error('anggaran')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

@@ -21,11 +21,11 @@ class PeminjamController extends Controller
 
     public function store(request $request){
         $this-> validate($request, [
-            'nim',
-            'nama',
-            'nama_barang',
-            'dokumentasi',
-            'jumlah',
+            'nim'=> 'required',
+            'nama'=> 'required',
+            'nama_barang'=> 'required',
+            'dokumentasi'=> 'required',
+            'jumlah'=> 'required',
         ]);
         $data = Peminjam::create ($request->all());
         if($request->hasFile('dokumentasi')){
