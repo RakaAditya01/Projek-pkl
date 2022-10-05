@@ -6,6 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\BaranguserController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,14 @@ Route::get('/', function () {
 
 //home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+//history
+Route::get('/history', [HistoryController::class, 'index'])->name('history');
+
+Route::delete('/deletehistory/{id}', [PeminjamController::class,'destroy'])->name('deletehistory');
+
+//user
+Route::get('/baranguser', [BaranguserController::class, 'index'])->name('baranguser');
 
 // barang
 Route::get('/barang', [BarangController::class,'index'])->name('barang');
