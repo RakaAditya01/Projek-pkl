@@ -8,16 +8,17 @@
             <div class="row">
                 <div class="col">
                     <form action="/baranguser/cari" method="GET" class="mt-3">
-                        <input type="text" id="input" placeholder="Cari Barang .." onkeyup='searchTable()'>
+                        <input type="text" id="input" placeholder="Cari Barang..." onkeyup='searchTable()'>
                     </form>
                 </div>
                 <table class="table mt-3">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Gambar</th>
+                            <th scope="col">Foto</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Jumlah</th>
+                            <th scope="col">Tgl.Dipinjam</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@
                             </td>
                             <td>{{$row -> nama_barang}}</td>
                             <td>{{$row -> jumlah}}</td>
+                            <td>{{$row -> created_at}}</td>
                             <td>
                                 <form action="/deletehistory/{{$row->id}}" method="POST">
                                     @csrf
