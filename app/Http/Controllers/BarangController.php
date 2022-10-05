@@ -24,6 +24,12 @@ class BarangController extends Controller
             'nama_barang' => 'required',
             'stock' => 'required',
             'anggaran' => 'required',
+        ],
+        [
+            'gambar.required' => 'Gambar tidak boleh kosong',
+            'nama_barang.required' => 'Nama Barang tidak boleh kosong',
+            'stock.required' => 'Stock tidak boleh kosong',
+            'anggaran.required' => 'Anggaran tidak boleh kosong',
         ]);
         $data = Barang::create ($request->all());
         if($request->hasFile('gambar')){
