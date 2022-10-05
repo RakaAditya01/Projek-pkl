@@ -20,9 +20,9 @@ class BarangController extends Controller
 
     public function store(request $request){
         $this-> validate($request, [
-            'nama_barang',
-            'stock',
-            'anggaran'
+            'nama_barang' => 'required',
+            'stock' => 'required',
+            'anggaran' => 'required',
         ]);
         Barang::create($request->all());
         return redirect(route('barang'))->with('success', 'Data Berhasil Di Tambahkan!');
