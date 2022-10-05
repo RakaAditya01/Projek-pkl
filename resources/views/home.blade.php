@@ -60,13 +60,26 @@
             </div>
 
 
+            @if(auth()->user()->role == 'user')
+            <li class="nav-item">
+                <a class="nav-link" href="/baranguser">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Barang</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+            @endif
+            @if(auth()->user()->role == 'admin')
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Peminjaman</span></a>
             </li>
-            @if(auth()->user()->role == 'admin')
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{route('barang')}}">

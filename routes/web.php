@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
-use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\WebcamController;
+use App\Http\Controllers\PeminjamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +24,6 @@ Route::get('/', function () {
 
 //home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 
 // barang
 Route::get('/barang', [BarangController::class,'index'])->name('barang');

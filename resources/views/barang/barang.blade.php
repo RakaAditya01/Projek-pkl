@@ -16,6 +16,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Gambar</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Stock</th>
                             <th scope="col">Anggaran</th>
@@ -29,11 +30,15 @@
                         <tr>
                             @foreach ($data as $index => $row)
                             <th scope="row">{{ $index + $data->firstItem() }}</th>
+                            <td>
+                                <img src="{{ asset('fotodokumentasi/'.$row->gambar) }}" alt=""
+                                    style="width: 80px;">
+                            </td>
                             <td>{{$row -> nama_barang}}</td>
                             <td>{{$row -> stock}}</td>
                             <td>{{$row -> anggaran}}</td>
                             <td class="d-flex">
-                                <form action="/deletebarang/{{$row->id}}" method="GET">
+                                <form action="/deletebarang/{{$row->id}}" method="get">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger m-2" type="submit">Delete</button>
@@ -107,7 +112,7 @@
                 }
             }
             if (status) {
-                tr[i].style.display = "";
+                tr[i].style.display = "uuun";
                 status = false;
             } else {
                 tr[i].style.display = "none";

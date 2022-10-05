@@ -20,13 +20,19 @@ class BarangController extends Controller
 
     public function store(request $request){
         $this-> validate($request, [
+            'gambar' => 'required',
             'nama_barang' => 'required',
             'stock' => 'required',
             'anggaran' => 'required',
         ]);
-        Barang::create($request->all());
-        return redirect(route('barang'))->with('success', 'Data Berhasil Di Tambahkan!');
+        $data = Barang::create ($request->all());
+        if($request->hasFile('gambar')){
+            $request->file('gambar')->move('fotodokumentasi/', $request->file('gambar')->getClientOriginalName());
+            $data->gambar = $request->file('gambar')->getClientOriginalName();
+            $data->save();
         }
+        return redirect(route('barang'));
+    }
     
     
 
@@ -45,20 +51,5 @@ class BarangController extends Controller
     $data->delete();
     return redirect()->route('barang')->with('success', 'Data Berhasil Di Hapus!');;
     }
-
-    public function cari(Request $request)
-	{
-		// menangkap data pencarian
-		$cari = $request->cari;
- 
-    		// mengambil data dari table pegawai sesuai pencarian data
-		$barang = DB::table('barangs')
-		->where('nama_barang','LIKE',"%".$cari."%")
-		->paginate(5);
- 
-    		// mengirim data pegawai ke view index
-		return view('barang\barang',['data' => $barang]);
- 
-	}
 
 }

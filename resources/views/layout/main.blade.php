@@ -64,13 +64,27 @@
             <div class="sidebar-heading">
                 Addons
             </div>
-            <!-- Nav Item - Pages Collapse Menu -->
+             <!-- Role User -->
+            @if(auth()->user()->role == 'user')
+            <li class="nav-item">
+                <a class="nav-link" href="/baranguser">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Data Barang</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+            @endif
+            <!-- Role Admin -->
+            @if(auth()->user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Peminjaman</span></a>
             </li>
-            @if(auth()->user()->role == 'admin')
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/barang">

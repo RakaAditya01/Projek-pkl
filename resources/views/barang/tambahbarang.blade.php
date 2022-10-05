@@ -8,8 +8,17 @@
         <div class="col-8">
             <div class="card">
                 <div class="card-body" style="width: 90%">
-                    <form  method="POST" action="{{route('insertbarang')}}">
+                    <form  method="POST"  action="/insertbarang/"  enctype="multipart/form-data">
                         @csrf
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Gambar</label>
+                            <input type="file" name="gambar" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            @error('gambar')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                            @enderror
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
                             <input type="text" name="nama_barang" class="form-control" id="" aria-describedby="emailHelp">
