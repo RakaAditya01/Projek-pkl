@@ -13,7 +13,10 @@
                         
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
-                            <input type="text" name="nim" id="" class="form-control" aria-describedby="emailHelp">
+                            <input type="text" name="nim" id="" class="form-control 
+                            @error('nim')
+                                is-invalid
+                            @enderror" aria-describedby="emailHelp">
                             @error('nim')
                             <div class="text-danger">
                                 {{ $message }}
@@ -23,7 +26,10 @@
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" name="nama" id="nama" class="form-control" aria-describedby="emailHelp">
+                            <input type="text" name="nama" id="nama" class="form-control 
+                            @error('nama')
+                                is-invalid
+                            @enderror" aria-describedby="emailHelp">
                             @error('nama')
                             <div class="text-danger">
                                 {{ $message }}
@@ -32,7 +38,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
+                            <label for="exampleInputEmail1" class="form-label  @error('nama_barang')
+                                is-invalid
+                            @enderror">Nama Barang</label>
                             <select class="form-control" id="nama_barang" aria-label="Default select example" name="nama_barang">
                                 <option value="">-- Pilih --</option>
                                 @foreach ($barang as $data)
@@ -48,7 +56,10 @@
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Dokumentasi</label>
-                            <input type="file" name="dokumentasi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="file" name="dokumentasi" class="form-control 
+                            @error('dokumentasi')
+                                is-invalid
+                            @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
                             @error('dokumentasi')
                             <div class="text-danger">
                                 {{$message}}
@@ -56,7 +67,10 @@
                             @enderror
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
-                            <input type="text" name="jumlah" class="form-control" id="" aria-describedby="emailHelp">
+                            <input type="text" name="jumlah" class="form-control 
+                            @error('jumlah')
+                                is-invalid
+                            @enderror" id="" aria-describedby="emailHelp">
                             @error('jumlah')
                             <div class="text-danger">
                                 {{ $message }}
