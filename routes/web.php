@@ -82,6 +82,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('webcam', [WebcamController::class, 'index']);
 Route::post('webcam', [WebcamController::class, 'store'])->name('webcam.capture');
 
+Route::get('scan', [ScanController::class, 'index'])->name('scan');
+
 // auth
 
 Route::group(['middleware' => ['auth','checkrole:admin']],function () {

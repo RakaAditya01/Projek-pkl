@@ -60,26 +60,23 @@
 </div>
 </div>
 @include('sweetalert::alert')
-
-{{-- @include('peminjam.peminjam_js') --}}
-@include('sweetalert::alert')
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
     integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </tbody>
 <script>
-    $('.deletebarang').click(function () {
-        var peminjamsid = $(this).attr('data-id');
+    $('.deletepeminjaman').click(function () {
+        var peminjaman id = $(this).attr('data-id');
         swal({
                 title: "Yakin Deck?",
-                text: "kamu akan menghapus data barang dengan id " + peminjamsid + " ",
+                text: "kamu akan menghapus data barang dengan id " + peminjamanid + " ",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/deletepeminjam/" + peminjamsid + " "
+                    window.location = "/deletepeminjaman/" + peminjamanid + " "
                     swal("Data berhasil di hapus", {
                         icon: "success",
                     });
@@ -117,7 +114,6 @@
             }
         }
     }
-
 </script>
 </tbody>
 </table>

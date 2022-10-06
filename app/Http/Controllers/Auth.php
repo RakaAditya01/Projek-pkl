@@ -37,4 +37,9 @@ class LoginController extends Controller
         ]);
         return redirect('/login');
     }
+    
+    public function User_PasswordExpired(&$rs) {
+        CurrentPage()->setWarningMessage("Halo ".$rs["name"].", kata sandi Anda sudah <em>expired</em>. Silahkan ganti kata sandi Anda melalui form berikut. <br><br>Jika Anda lupa dengan kata sandi yang lama, silahkan reset dengan mengklik link <strong>Lupa Kata Sandi</strong> di bawah form Login.");
+    }
+    
 }
