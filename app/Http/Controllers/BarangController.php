@@ -53,7 +53,7 @@ class BarangController extends Controller
     }   
 
     public function destroy($id){
-    $data = Barang::find($id);
+    $data = Barang::first();
     $data->delete();
     return redirect()->route('barang')->with('success', 'Data Berhasil Di Hapus!');;
     }

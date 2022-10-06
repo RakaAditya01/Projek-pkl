@@ -34,91 +34,86 @@
                                 <img src="{{ asset('fotodokumentasi/'.$row->gambar) }}" alt=""
                                     style="width: 80px;">
                             </td>
-                            <td>{{$row -> nama_barang}}</td>
-                            <td>{{$row -> stock}}</td>
-                            <td>{{$row -> anggaran}}</td>
+                            <td>{{$row ->nama_barang}}</td>
+                            <td>{{$row ->stock}}</td>
+                            <td>{{$row ->anggaran}}</td>
                             <td class="d-flex">
-                                <form action="/deletebarang/{{$row->id}}" method="get">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger m-2" type="submit">Delete</button>
-                                </form>
-                                <a href="/tampilanbarang/{{$row->id}}" type="submit"
-                                    class="btn btn-warning m-2">Edit</a>
-                            </td>
-                        </tr>
-            </div>
+                                <a href="#" class="btn btn-danger m-2 delete" data-id="{{$row->id}}"  data-nama="{{$row->nama}}">Delete</a>
+                            <a href="/tampilanbarang/{{$row->id}}" type="submit"class="btn btn-warning m-2">Edit</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-@endforeach
-</tbody>
-</table>
-{{ $data->links() }}
 </div>
-</div>
-</div>
-</div>
-</div>
-@include('sweetalert::alert')
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
-    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+{{-- script --}}
+<script
+src="https://code.jquery.com/jquery-3.6.0.slim.js"
+integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+crossorigin="anonymous"></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</tbody>
+
+{{-- end --}}
+</body>
 <script>
-    $('.deletebarang').click(function () {
-        var barangid = $(this).attr('data-id');
-        swal({
-                title: "Yakin Deck?",
-                text: "kamu akan menghapus data barang dengan id " + barangid + " ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
+$('.delete').click( function( ){
+    var barangid = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    swal({
+            title: "Yakin?",
+            text: "Anda Akan Menghapus Data Ini id "+barangid+"",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
             })
             .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/deletebarang/" + barangid + " "
-                    swal("Data berhasil di hapus", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("data tidak jadi dihapus");
-                }
-            });
+            if (willDelete) {
+                window.location = "/deletebarang/ "+barangid+""
+                swal("Data Anda Berhasil Di Hapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Data Anda Tidak Jadi Di Hapus");
+            }
     });
+});
 
 </script>
 
 <script>
-    function searchTable() {
-        var input;
-        var saring;
-        var status;
-        var tbody;
-        var tr;
-        var td;
-        var i;
-        var j;
-        input = document.getElementById("input");
-        saring = input.value.toUpperCase();
-        tbody = document.getElementsByTagName("tbody")[0];;
-        tr = tbody.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td");
-            for (j = 0; j < td.length; j++) {
-                if (td[j].innerHTML.toUpperCase().indexOf(saring) > -1) {
-                    status = true;
-                }
-            }
-            if (status) {
-                tr[i].style.display = "uuun";
-                status = false;
-            } else {
-                tr[i].style.display = "none";
+function searchTable() {
+    var input;
+    var saring;
+    var status;
+    var tbody;
+    var tr;
+    var td;
+    var i;
+    var j;
+    input = document.getElementById("input");
+    saring = input.value.toUpperCase();
+    tbody = document.getElementsByTagName("tbody")[0];;
+    tr = tbody.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(saring) > -1) {
+                status = true;
             }
         }
+        if (status) {
+            tr[i].style.display = "uuun";
+            status = false;
+        } else {
+            tr[i].style.display = "none";
+        }
     }
+}
 
 </script>
-</table>
+</html>
 @endsection

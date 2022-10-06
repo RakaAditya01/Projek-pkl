@@ -40,52 +40,53 @@
                             </td>
                             <td>{{$row->jumlah}}</td>
                             <td class="d-flex">
-                                <form action="/deletepeminjaman/{{$row->id}}" method="POST">
-                                    @csrf
-                                    @method("delete")
-                                    <button class="btn btn-danger m-2">Delete</button>
-
-                                </form>
-                                <a href="/tampilanpeminjam/{{$row->id}}" type="submit"
-                                    class="btn btn-warning m-2">Edit</a>
+                                    <a href="#" class="btn btn-danger m-2 delete" data-id="{{$row->id}}"  data-nama="{{$row->nama}}">Delete</a>
+                                <a href="/tampilanpeminjam/{{$row->id}}" type="submit"class="btn btn-warning m-2">Edit</a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{ $data->links() }}
             </div>
         </div>
     </div>
 </div>
-</div>
-@include('sweetalert::alert')
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
-    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+ {{-- script --}}
+ <script
+  src="https://code.jquery.com/jquery-3.6.0.slim.js"
+  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+  crossorigin="anonymous"></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</tbody>
-<script>
-    $('.deletepeminjaman').click(function () {
-        var peminjaman id = $(this).attr('data-id');
+
+{{-- end --}}
+  </body>
+  <script>
+    $('.delete').click( function( ){
+        var peminjamid = $(this).attr('data-id');
+        var nama = $(this).attr('data-nama');
         swal({
-                title: "Yakin Deck?",
-                text: "kamu akan menghapus data barang dengan id " + peminjamanid + " ",
+                title: "Yakin?",
+                text: "Anda Akan Menghapus Data Ini id "+nama+"",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
-            })
-            .then((willDelete) => {
+                })
+                .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/deletepeminjaman/" + peminjamanid + " "
-                    swal("Data berhasil di hapus", {
-                        icon: "success",
+                    window.location = "/deletepeminjaman/ "+nama+""
+                    swal("Data Anda Berhasil Di Hapus", {
+                    icon: "success",
                     });
                 } else {
-                    swal("data tidak jadi dihapus");
+                    swal("Data Anda Tidak Jadi Di Hapus");
                 }
-            });
+        });
     });
-    
+
+  </script>
+
+<script>
     function searchTable() {
         var input;
         var saring;
@@ -107,14 +108,14 @@
                 }
             }
             if (status) {
-                tr[i].style.display = "";
+                tr[i].style.display = "uuun";
                 status = false;
             } else {
                 tr[i].style.display = "none";
             }
         }
     }
+
 </script>
-</tbody>
-</table>
+</html>
 @endsection

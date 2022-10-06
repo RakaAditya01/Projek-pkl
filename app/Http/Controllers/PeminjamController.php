@@ -57,7 +57,7 @@ class PeminjamController extends Controller
     }   
 
     public function destroy($id){
-        $data = Peminjam::find($id);
+        $data = Peminjam::first();
         $data->delete();
         return redirect()->route('peminjaman');
     }
