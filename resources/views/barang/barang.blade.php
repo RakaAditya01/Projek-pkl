@@ -6,9 +6,9 @@
         <div class="card-body">
             <h1 class="mx-auto text-center">Data Barang</h1>
             <div class="row">
-                <a href="{{route('tambahbarang')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
+                <a href="{{route('tambahbarang')}}" type="button" class="btn btn-success mt-2 mb-4">Tambah +</a>
                 <div class="col">
-                    <form action="/barang/cari" method="GET" class="mt-3">
+                    <form action="/barang" method="GET" class="mt-3">
                         <input type="text" id="input" placeholder="Cari Barang .." onkeyup='searchTable()'>
                     </form>
                 </div>
@@ -43,6 +43,11 @@
                         </td>
                     </tr>
                     @endforeach
+                    @if ($data->count() == 0)
+                            <div class="alert alert-danger" role="alert">
+                                Tidak Ada Data Peminjam!
+                            </div>
+                        @endif
                 </tbody>
             </table>
         </div>
