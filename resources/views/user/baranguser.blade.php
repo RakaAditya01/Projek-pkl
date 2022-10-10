@@ -11,7 +11,7 @@
                         <input type="text" id="input" placeholder="Cari Barang .." onkeyup='searchTable()'>
                     </form>
                 </div>
-                <table class="table mt-3">
+                <table class="table mt-3 table-bordered" id="table1">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -33,11 +33,12 @@
                                 <img src="{{ asset('fotodokumentasi/'.$row->gambar) }}" alt=""
                                     style="width: 80px;">
                             </td>
+                            <td hidden id="id">{{$row -> id}}</td>
                             <td>{{$row -> nama_barang}}</td>
                             <td>{{$row -> stock}}</td>
                             <td>{{$row -> anggaran}}</td>
                             <td>
-                                <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Pinjam +</a>
+                                <a href="{{route('pinjamuser')}}" type="button" class="btn btn-success m-2">Pinjam</a>
                             </td>
                         </tr>
             </div>
@@ -52,6 +53,9 @@
 </div>
 </div>
 </div>
+@php
+    echo $data["gambar"];
+@endphp
 </div>
 @include('sweetalert::alert')
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
@@ -60,6 +64,22 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </tbody>
 <script>
+    $("#meminjam").click(function () {
+        console.log("babo")
+        // var requestOptions = {
+        //     method = 'POST',
+        //     redirect = 'follow'
+        // };
+        var coba = $("#id").val()
+        console.log(coba)
+        // fetch("http://localhost:8000/api/namadannim/?id=" +id, requestOptions)
+        // .then(response => response.text())
+        // .then(result => console.log("bismillah"))
+        // .catch(error => console.log('error', error));
+    
+    })
+        
+
     function searchTable() {
         var input;
         var saring;
