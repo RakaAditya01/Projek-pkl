@@ -10,48 +10,35 @@
                 <div class="card-body" style="width: 90%">
                     <form method="POST" action="/insertpeminjam/" enctype="multipart/form-data">
                         @csrf
-                        
+                        @foreach($user as $users)
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIM</label>
                             <input type="text" name="nim" id="" class="form-control 
                             @error('nim')
                                 is-invalid
-                            @enderror" aria-describedby="emailHelp">
+                            @enderror" aria-describedby="emailHelp" value="{{$users -> nim}}" readonly>
                             @error('nim')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
+                        @endforeach
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" name="nama" id="nama" class="form-control 
-                            @error('nama')
-                                is-invalid
-                            @enderror" aria-describedby="emailHelp">
-                            @error('nama')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                            <input type="text" name="nama"  class="form-control" aria-describedby="emailHelp" value="{{auth()->user()->name}}" readonly>
+                            </input>
                         </div>
-
+                        
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label  @error('nama_barang')
-                                is-invalid
-                            @enderror">Nama Barang</label>
-                            <select class="form-control" id="nama_barang" aria-label="Default select example" name="nama_barang">
+                            <label for="exampleInputEmail1" class="form-label">Nama Barang</label>
+                            <select class="form-control" nama="nama_barang" id="" aria-label="Default select example" name="nama_barang">
                                 <option value="">-- Pilih --</option>
                                 @foreach ($barang as $data)
                                 <option value="{{$data->nama_barang}}">{{ $data->nama_barang}}</option>
                                 @endforeach
                             </select>
-                            @error('nama_barang')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
 
                         <div class="mb-3">

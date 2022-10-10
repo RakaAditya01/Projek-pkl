@@ -11,29 +11,52 @@ class PeminjamController extends Controller
 {   
     public function index(){  
         $data = Peminjam::paginate();
+        
+        // 
         return view('peminjam\peminjaman',compact('data'));
     }
 
-    public function tambahpeminjam(){
+    public function tambahpeminjam(Request $request){
         $barang = Barang ::all();
-        return view('peminjam\tambahpeminjam' , compact('barang'));
+        
+        $nama = auth()->user()->name;
+        // $peminjam = DB::table('users')
+        //     ->join('peminjams', 'peminjams.nim','=','users.nim')
+        //     ->select('users.*','peminjams.nama_barang','peminjams.jumlah')
+        //     ->get()
+        // ;
+        // dd($peminjam);
+        $user = DB::table('users')
+            ->where('name' ,'=', $nama)
+            ->select('nim','name')
+            ->get();
+        // 
+         return view('peminjam\tambahpeminjam',[
+            'user' => $user
+         ] , compact('barang'));
     }
 
     public function store(request $request){
         $this-> validate($request, [
-            'nim'=> 'required',
-            'nama'=> 'required',
+            'nim',
+            'nama',
             'nama_barang'=> 'required',
             'dokumentasi'=> 'required',
             'jumlah'=> 'required',
         ],
         [
-            'nim.required' => 'Nim tidak boleh kosong',
-            'nama.required' => 'Nama tidak boleh kosong',
             'nama_barang.required' => 'Nama Barang tidak boleh kosong',
             'dokumentasi.required' => 'Dokumentasi tidak boleh kosong',
             'jumlah.required' => 'Jumlah tidak boleh kosong',
         ]);
+        // $datas[] =[
+        //     'nim' => $request->input('nim'),
+        //     'nama' => $request->input('nama'),
+        //     'nama_barang' => $request->input('nama_barang'),
+        //     'dokumentasi' => $request()->file('dokumentasi'),
+        //     'jumlah' => $request->input('jumlah')
+        // ];
+        // dd($datas);
         $data = Peminjam::create ($request->all());
         if($request->hasFile('dokumentasi')){
             $request->file('dokumentasi')->move('fotodokumentasi/', $request->file('dokumentasi')->getClientOriginalName());

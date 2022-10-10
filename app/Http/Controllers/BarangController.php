@@ -58,4 +58,6 @@ class BarangController extends Controller
     return redirect()->route('barang')->with('success', 'Data Berhasil Di Hapus!');;
     }
 
+   
+
 }

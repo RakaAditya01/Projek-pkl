@@ -70,7 +70,7 @@ $('.delete').click( function( ){
     var nama = $(this).attr('data-nama');
     swal({
             title: "Yakin?",
-            text: "Anda Akan Menghapus Data Ini id "+barangid+"",
+            text: "Anda Akan Menghapus Data Ini? "+barangid+"",
             icon: "warning",
             buttons: true,
             dangerMode: true,
