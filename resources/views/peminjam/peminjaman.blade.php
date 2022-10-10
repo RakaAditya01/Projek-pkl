@@ -6,13 +6,13 @@
         <div class="card-body">
             <h1 class="mx-auto text-center">Data Peminjam</h1>
             <div class="row">
-                <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success mt-2">Tambah +</a>
+                <a href="{{route('tambahpeminjam')}}" type="button" class="btn btn-success m-2">Tambah +</a>
                 <div class="col">
                     <form action="/peminjam/cari" method="GET" class="mt-3">
                       <input type="text" id="input" placeholder="Cari Peminjam .."  onkeyup='searchTable()'>
                   </form>
                   </div>
-                <table class="table mt-3">
+                <table class="table mt-3 table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -44,7 +44,6 @@
                                     @csrf
                                     @method("delete")
                                     <button class="btn btn-danger m-2">Delete</button>
-
                                 </form>
                                 <a href="/tampilanpeminjam/{{$row->id}}" type="submit"
                                     class="btn btn-warning m-2">Edit</a>
