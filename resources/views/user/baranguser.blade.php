@@ -7,7 +7,7 @@
             <h1 class="mx-auto text-center">Data Barang</h1>
             <div class="row">
                 <div class="col">
-                    <form action="/baranguser/cari" method="GET" class="mt-3">
+                    <form action="/baranguser" method="GET" class="mt-3">
                         <input type="text" id="input" placeholder="Cari Barang .." onkeyup='searchTable()'>
                     </form>
                 </div>
@@ -38,7 +38,7 @@
                             <td>{{$row -> stock}}</td>
                             <td>{{$row -> anggaran}}</td>
                             <td>
-                                <a href="{{route('pinjamuser')}}" type="button" class="btn btn-success m-2">Pinjam</a>
+                                <a href="{{route('pinjamuser')}}" type="button" class="btn btn-primary m-2">Pinjam</a>
                             </td>
                         </tr>
             </div>

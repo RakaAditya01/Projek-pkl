@@ -7,7 +7,7 @@
             <h1 class="mx-auto text-center">Barang Dipinjam</h1>
             <div class="row">
                 <div class="col">
-                    <form action="/baranguser/cari" method="GET" class="mt-3">
+                    <form action="/history" method="GET" class="mt-3">
                         <input type="text" id="input" placeholder="Cari Barang..." onkeyup='searchTable()'>
                     </form>
                 </div>
@@ -41,7 +41,6 @@
                                     @csrf
                                     @method("delete")
                                     <button class="btn btn-primary m-2">Kembalikan</button>
-
                                 </form>
                             </td>
                         </tr>
