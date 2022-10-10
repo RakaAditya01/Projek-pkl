@@ -30,7 +30,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //history
 Route::get('/history', [HistoryController::class, 'index'])->name('history');
-Route::delete('/deletehistory/{id}', [PeminjamController::class,'destroy'])->name('deletehistory');
+Route::delete('/deletehistory/{id}', [HistoryController::class,'destroy'])->name('deletehistory');
 
 //user
 Route::get('/baranguser', [BaranguserController::class, 'index'])->name('baranguser');

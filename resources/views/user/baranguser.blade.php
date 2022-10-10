@@ -38,7 +38,7 @@
                             <td>{{$row -> stock}}</td>
                             <td>{{$row -> anggaran}}</td>
                             <td>
-                                <a href="{{route('pinjamuser')}}" type="button" class="btn btn-success m-2">Pinjam</a>
+                                <a href="{{route('pinjamuser')}}" type="button" class="btn btn-primary m-2">Pinjam</a>
                             </td>
                         </tr>
             </div>

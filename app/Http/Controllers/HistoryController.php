@@ -16,6 +16,6 @@ class HistoryController extends Controller
     public function destroy($id){
         $data = Peminjam::find($id);
         $data->delete();
-        return redirect('history')->route();
+        return redirect()->route('history');
     }
 }
