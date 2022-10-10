@@ -38,27 +38,31 @@
                             <td>{{$row ->stock}}</td>
                             <td>{{$row ->anggaran}}</td>
                             <td class="d-flex">
-                                <a href="#" class="btn btn-danger m-2 delete" data-id="{{$row->id}}"  data-nama="{{$row->nama}}">Delete</a>
-                            <a href="/tampilanbarang/{{$row->id}}" type="submit"class="btn btn-warning m-2">Edit</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                    @if ($data->count() == 0)
-                            <div class="alert alert-danger" role="alert">
-                                Tidak Ada Data Peminjam!
-                            </div>
-                        @endif
-                </tbody>
-            </table>
+                                <form action="/deletebarang/{{$row->id}}" method="get">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger m-2" type="submit">Delete</button>
+                                </form>
+                                <a href="/tampilanbarang/{{$row->id}}" type="submit"
+                                    class="btn btn-warning m-2">Edit</a>
+                            </td>
+                        </tr>
+            </div>
         </div>
     </div>
 </div>
+@endforeach
+</tbody>
+</table>
+{{ $data->links() }}
 </div>
-{{-- script --}}
-<script
-src="https://code.jquery.com/jquery-3.6.0.slim.js"
-integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
-crossorigin="anonymous"></script>
+</div>
+</div>
+</div>
+</div>
+@include('sweetalert::alert')
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
