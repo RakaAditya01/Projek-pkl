@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{{-- Recaptcha --}}
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+{!! NoCaptcha::renderJs() !!} --}}
+
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inventasris Barang - Register</title>
+    <title>Inventaris Barang - Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,16 +62,27 @@
                                             id="exampleInputPassword" placeholder="Password" name="password">
                                     </div>
                                 </div>
+
+                                {{-- Recaptcha --}}
+                                {{-- <div class="wrap-input100 validate-input" data-validate="password">
+                                    <div class="{{ $errors->first('g-recaptcha-response')? 'has-error' : ''}}">
+                                        {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+                                    </div>
+                                    @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif --}}
+                                    
                                 <button class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                {{-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
                                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                </a> --}}
                             </form>
                             <hr>
                             <div class="text-center">
@@ -85,7 +100,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="/Template/vendor/jquery/jquery.min.js"></script>
+    <script src="/Template/vendor/jquery/jquery.min.js"></>
     <script src="/Template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->

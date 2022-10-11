@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
@@ -43,6 +44,17 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
+    // public function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'nim'  => ['required', 'numeric', 'min:16'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique'],
+    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
+    //         'g-recaptcha-response' => 'required|captcha'
+    //     ]);
+    // }
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -54,4 +66,12 @@ class LoginController extends Controller
         return redirect('/login');
     }
     
+    // public function validateLogin(Request $request) {
+    //     $this->validate( $request, [
+    //         'email' => ['required', 'string', 'email'],
+    //         'password' => ['required', 'string'],
+    //         'g-recaptcha-response' => 'required|captcha'
+    //     ]);
+    // }
+
 }

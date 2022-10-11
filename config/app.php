@@ -195,6 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
     ],
 
     /*
@@ -214,6 +216,8 @@ return [
         ])->toArray(),
     
         // 'ExampleClass' => App\Example\ExampleClass::class,
-       
+    //    'aliases' => [
+    //     'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+    //    ],
 
 ];
