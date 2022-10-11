@@ -66,7 +66,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+            
             </div>
              <!-- Role User -->
             @if(auth()->user()->role == 'mahasiswa')

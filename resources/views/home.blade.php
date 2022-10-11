@@ -46,22 +46,24 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+            
 
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+            
             </div>
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
+            @if(auth()->user()->role == 'mahasiswa')
+            <!-- Nav Item - Dashboard -->
 
-            @if(auth()->user()->role == 'user')
             <li class="nav-item">
                 <a class="nav-link" href="/baranguser">
                     <i class="fas fa-fw fa-chart-area"></i>
