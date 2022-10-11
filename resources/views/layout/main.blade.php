@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="fotodokumentasi/logo.jpg" type="image/x-icon">
 
-    <title>Sarpras</title>
+    <title>Sarpras - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="/Template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
