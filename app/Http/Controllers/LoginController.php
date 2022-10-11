@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,7 @@ class LoginController extends Controller
     public function register(){
         return view('login.register');
     }
+    
 
     public function registeruser(Request $request){
         // dd($request->all());
@@ -34,6 +36,8 @@ class LoginController extends Controller
             'nim' => $request->nim,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'expired' => Carbon::parse($request->updated_at)->format('d-m-Y G:i'),
+            'tanggal_awal' => Carbon::parse($request->created_at)->format('d-m-Y G:i'),
             'remember_token' => Str::random(60)
         ]);
         return redirect('/login');

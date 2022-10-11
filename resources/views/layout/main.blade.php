@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="fotodokumentasi/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="fotodokumentasi/pnj.png" type="image/x-icon">
 
     <title>Sarpras - Dashboard</title>
 
@@ -41,12 +41,13 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+         <!-- Sidebar -->
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink" style="width: 35; height: 35;"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="fotodokumentasi/pnjwhite.png" style="height: 60px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin Barang</div>
             </a>
@@ -68,7 +69,7 @@
                 Addons
             </div>
              <!-- Role User -->
-            @if(auth()->user()->role == 'user')
+            @if(auth()->user()->role == 'mahasiswa')
             <li class="nav-item">
                 <a class="nav-link" href="/baranguser">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -85,7 +86,7 @@
             @if(auth()->user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Peminjaman</span></a>
             </li>
             <!-- Nav Item - Charts -->
@@ -101,6 +102,12 @@
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
+            </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/user">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>User</span></a>
             </li>
             @endif
             <!-- Divider -->

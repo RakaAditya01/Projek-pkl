@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['admin', 'user'])->default('user');
+            // $table->date('expired');
+            // $table->date('tanggal_awal');
+            $table->enum('role',['admin', 'mahasiswa']);
             $table->rememberToken();
             $table->timestamps();
         });

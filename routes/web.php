@@ -7,6 +7,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\BaranguserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HistoryController;
 
 /*
@@ -38,6 +39,17 @@ Route::get('/pinjamuser', [BaranguserController::class,'pinjamuser'])->name('pin
 Route::post('/insertpinjam', [BaranguserController::class,'store'])->name('insertpinjam');
 
 // Route::post('/namadannim', [BaranguserController::class, 'namadannim'])->name('namadannim');
+
+
+// expired
+
+Route::get('/user', [UserController::class, 'index'])->name('User');
+Route::get('/tambahuser', [UserController::class,'tambahuser'])->name('tambahuser');
+Route::post('/insertuser', [UserController::class,'store'])->name('insertuser');
+Route::get('/tampilanuser/{id}', [UserController::class,'tampilanuser'])->name('tampilanuser');
+Route::put('/updateuser/{id}', [UserController::class,'update'])->name('updateuser');
+Route::get('/deleteuser/{id}', [UserController::class,'destroy'])->name('deletebarang');
+Route::get('/user/cari',[UserController::class,'cari'])->name('cari');
 
 // barang
 Route::get('/barang', [BarangController::class,'index'])->name('barang');
@@ -77,5 +89,5 @@ Route::get('scan', [ScanController::class, 'index'])->name('scan');
 // auth
 Route::group(['middleware' => ['auth','checkrole:admin']],function () {
     Route::get('admin', function () { return view('admin'); })->middleware('checkRole:admin');
-    Route::get('user', function () { return view('user'); })->middleware(['checkRole:user,admin']);
+    Route::get('mahasiswa', function () { return view('mahasiswa'); })->middleware(['checkRole:mahasiswa,admin']);
 });

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="fotodokumentasi/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="fotodokumentasi/pnj.png" type="image/x-icon">
 
     <title>Sarpras - Dashboard</title>
 
@@ -37,8 +37,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink" style="width: 35; height: 35;"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="fotodokumentasi/pnjwhite.png" style="height: 60px">
                 </div>
                 <div class="sidebar-brand-text mx-3">ADMIN BARANG</div>
             </a>
@@ -78,7 +78,7 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Peminjaman</span></a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
@@ -94,6 +94,11 @@
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>User</span></a>
             </li>
             @endif
             <!-- Divider -->
