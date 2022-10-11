@@ -44,6 +44,7 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
+    // recaptcha
     // public function validator(array $data)
     // {
     //     return Validator::make($data, [
@@ -66,6 +67,7 @@ class LoginController extends Controller
         return redirect('/login');
     }
     
+    // rechaptcha-2
     // public function validateLogin(Request $request) {
     //     $this->validate( $request, [
     //         'email' => ['required', 'string', 'email'],
