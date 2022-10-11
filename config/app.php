@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // recaptcha
         // Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
@@ -213,11 +214,12 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
      'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
+    //  Recaptcha
+    //  'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+
         ])->toArray(),
     
-        // 'ExampleClass' => App\Example\ExampleClass::class,
-    //    'aliases' => [
-    //     'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
-    //    ],
+        'ExampleClass' => App\Example\ExampleClass::class,
+
 
 ];
