@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function loginproses(Request $request)
     {
-        if(Auth::attempt($request->only('email','password'))){
+        if(Auth::attempt($request->only('email','password', 'expired_at'))){
             return redirect('/home');
         }
         return redirect('login');
@@ -34,8 +34,7 @@ class LoginController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            // 'expired' => Carbon::parse($request->updated_at)->format('l\, d-m-Y h:1 A'),
-            // 'tanggal_awal' => Carbon::parse($request->created_at)->format('l\, d-m-Y h:1 A'),
+            'expired_at' => Carbon::now()->addMonths(6),
             'remember_token' => Str::random(60)
         ]);
         return redirect('/login');
