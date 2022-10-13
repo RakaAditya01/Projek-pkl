@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // recaptcha
+        Mews\Captcha\CaptchaServiceProvider::class,
         // Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
@@ -215,6 +216,7 @@ return [
      'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
     //  Recaptcha
+    'Captcha' => Mews\Captcha\Facades\Captcha::class,
     //  'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 
         ])->toArray(),

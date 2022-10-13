@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{-- Recaptcha --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  --}}
-{{-- {!! NoCaptcha::renderJs() !!} --}}
 <head>
 
     <meta charset="utf-8">
@@ -63,15 +60,20 @@
                                 </div>
 
                                 {{-- Recaptcha --}}
-                                {{-- <div class="wrap-input100 validate-input" data-validate="password">
-                                    <div class="{{ $errors->first('g-recaptcha-response')? 'has-error' : ''}}">
-                                        {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+                                <div class="form-group row">
+                                    <label for="captcha" class="col-md-4 col-form-label">Captcha</label>
+                                    <div class="col-md-6 captcha">
+                                        <span>{!! captcha_img() !!}</span>
+                                        <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                        &#x21bb;
+                                        </button>
                                     </div>
-                                    @if ($errors->has('g-recaptcha-response'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                    </span>
-                                @endif --}}
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <input id="captcha" type="text" class="form-control form-control-user" placeholder="Enter Captcha" name="captcha">
+                                    </div>
+                                </div>
                                     
                                 <button class="btn btn-primary btn-user btn-block">
                                     Register Account
@@ -108,6 +110,18 @@
     <!-- Custom scripts for all pages-->
     <script src="/Template/js/sb-admin-2.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

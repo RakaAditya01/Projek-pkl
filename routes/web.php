@@ -91,3 +91,6 @@ Route::group(['middleware' => ['auth','checkrole:admin']],function () {
     Route::get('admin', function () { return view('admin'); })->middleware('checkRole:admin');
     Route::get('mahasiswa', function () { return view('mahasiswa'); })->middleware(['checkRole:mahasiswa,admin']);
 });
+
+// Recaptcha
+Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);

@@ -45,16 +45,20 @@ class LoginController extends Controller
     }
 
     // recaptcha
-    // public function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'nim'  => ['required', 'numeric', 'min:16'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique'],
-    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
-    //         'g-recaptcha-response' => 'required|captcha'
-    //     ]);
-    // }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'captcha' => ['required','captcha'],
+        ]);
+    }
+   
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
 
     public function logout(Request $request)
     {
