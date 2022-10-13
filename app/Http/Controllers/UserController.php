@@ -26,11 +26,13 @@ class UserController extends Controller
             'nim' => $request->nim,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            // 'expired' => Carbon::parse($request->updated_at)->format('l\, d-m-Y h:1 A'),
-            // 'tanggal_awal' => Carbon::parse($request->created_at)->format('l\, d-m-Y h:1 A'),
+            'expired_at' => Carbon::now()->addMonths(6),
             'remember_token' => Str::random(60)
         ]);
-        return redirect('/user');
+        // $coupon = Coupon::where('code', $request->get('coupon'))->first();
+
+        // if (!empty($coupon) && $coupon->expire_date );
+        // return redirect('/user');
     }
 
     public function tampilanUser($id){

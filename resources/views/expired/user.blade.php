@@ -21,6 +21,7 @@
                             <th scope="col">Nim</th>
                             <th scope="col">Email</th>
                             <th scope="col">password</th>
+                            <th scope="col">Expired</th>
                             <th scope="col">Role</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -36,7 +37,7 @@
                             <td>{{$row ->nim}}</td>
                             <td>{{$row ->email}}</td>
                             <td>{{$row ->password}}</td>
-                            {{-- <td>{{$row ->expired}}</td> --}}
+                            <td>{{$row ->expired_at}}</td>
                             <td>{{$row ->role}}</td>
                             <td class="d-flex">
                                 <a href="#" class="btn btn-danger m-2 delete" data-id="{{$row->id}}"  data-nama="{{$row->name}}">Delete</a>

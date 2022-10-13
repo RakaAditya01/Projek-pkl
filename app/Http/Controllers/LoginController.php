@@ -13,6 +13,7 @@ class LoginController extends Controller
 {
    
     public function login(){
+    
         return view('login\login');
     }
 
@@ -29,6 +30,7 @@ class LoginController extends Controller
         return view('login.register');
     }
     
+    
 
     public function registeruser(Request $request){
         // dd($request->all());
@@ -37,10 +39,12 @@ class LoginController extends Controller
             'nim' => $request->nim,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'expired' => Carbon::parse($request->updated_at)->format('d-m-Y G:i'),
-            'tanggal_awal' => Carbon::parse($request->created_at)->format('d-m-Y G:i'),
+            'expired_at' => Carbon::now()->addMonths(6),
             'remember_token' => Str::random(60)
         ]);
+        $User = User::where('name', $request->get('user'))->first();
+
+        if (!empty($User) && $User->expired_at );
         return redirect('/login');
     }
 

@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Carbon\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -22,8 +23,7 @@ class User extends Authenticatable
         'nim',
         'email',
         'password',
-        // 'expired',
-        // 'tanggal_awal',
+        'expired_at',
         'role',
     ];
 
@@ -45,4 +45,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $dates = ['expired_at'];
 }
