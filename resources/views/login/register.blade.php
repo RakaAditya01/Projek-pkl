@@ -57,20 +57,20 @@
                                         <input type="password" class="form-control form-control-user"
                                             id="exampleInputPassword" placeholder="Password" name="password">
                                     </div>
+                                        <div class="col-md-6">
+                                            <input id="captcha" type="text" class="form-control form-control-user" placeholder="Enter Captcha" name="captcha">
+                                        </div>
                                 </div>
 
                                 {{-- Recaptcha --}}
+                               
                                 <div class="form-group row">
+                                    <label for="captcha" class="col-md-2 col-form-label">Captcha</label>
                                     <div class="col-md-6 captcha">
                                         <span>{!! captcha_img() !!}</span>
                                         <button type="button" class="btn btn-danger" class="reload" id="reload">
                                         &#x21bb;
                                         </button>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <input id="captcha" type="text" class="form-control form-control-user" placeholder="Enter Captcha" name="captcha">
                                     </div>
                                 </div>
                                     
