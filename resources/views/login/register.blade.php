@@ -61,7 +61,6 @@
 
                                 {{-- Recaptcha --}}
                                 <div class="form-group row">
-                                    <label for="captcha" class="col-md-4 col-form-label">Captcha</label>
                                     <div class="col-md-6 captcha">
                                         <span>{!! captcha_img() !!}</span>
                                         <button type="button" class="btn btn-danger" class="reload" id="reload">
